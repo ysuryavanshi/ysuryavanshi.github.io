@@ -2,21 +2,718 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Meta refresh tag: redirects after 0 seconds -->
-  <meta http-equiv="refresh" content="0; url=https://github.com/ysuryavanshi/">
-  <title>Redirecting...</title>
-  <script type="text/javascript">
-    // JavaScript redirect as a fallback
-    window.location.href = "https://github.com/ysuryavanshi/";
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description"
+        content="Yash Suryavanshi - Portfolio of a software engineer with experience in web development, machine learning, and cloud technologies.">
+    <meta name="keywords"
+        content="Yash Suryavanshi, Portfolio, Software Engineer, Web Development, Machine Learning, Cloud Computing, Santa Clara University">
+    <meta name="author" content="Yash Suryavanshi">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Yash Suryavanshi | Portfolio">
+    <meta property="og:description"
+        content="Portfolio of Yash Suryavanshi - Software Engineer, Web Developer, and Machine Learning Enthusiast.">
+    <meta property="og:image" content="banner_image.jpg">
+    <meta property="og:url" content="https://ysuryavanshi.github.io">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Yash Suryavanshi | Portfolio">
+    <meta name="twitter:description"
+        content="Portfolio of Yash Suryavanshi - Software Engineer, Web Developer, and Machine Learning Enthusiast.">
+    <meta name="twitter:image" content="banner_image.jpg">
+
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon-96.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+    <title>Yash Suryavanshi | Portfolio</title>
+
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Person",
+          "name": "Yash Suryavanshi",
+          "jobTitle": "Software Engineer",
+          "url": "https://ysuryavanshi.github.io",
+          "sameAs": [
+            "https://github.com/ysuryavanshi",
+            "https://www.linkedin.com/in/yashsuryavanshi"
+          ],
+          "worksFor": {
+            "@type": "Organization",
+            "name": "Santa Clara University"
+          },
+          "alumniOf": {
+            "@type": "EducationalOrganization",
+            "name": "Santa Clara University"
+          }
+        }
+        </script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:300,400" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f8f9fa;
+            color: #343a40;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .navbar {
+            background-color: #ffffff !important;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand,
+        .nav-link {
+            color: #343a40 !important;
+            font-weight: bold;
+        }
+
+        .nav-link:hover {
+            color: #3498db !important;
+        }
+
+        .hero {
+            height: 100vh;
+            background: url('https://source.unsplash.com/1600x900/?technology,code') no-repeat center center/cover;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.7);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            color: #343a40;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            color: #343a40;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            color: #343a40;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: #3498db;
+            margin: 0.5rem auto;
+        }
+
+        .ratio-9x16 {
+            position: relative;
+            width: 100%;
+            padding-bottom: calc(16 / 9 * 100%);
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .ratio-9x16>img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card {
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-title {
+            color: #3498db;
+            font-weight: 700;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: #3498db;
+        }
+
+        .timeline-item {
+            position: relative;
+            width: 50%;
+            padding: 1rem 2rem;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            top: 20px;
+            right: -10px;
+            width: 20px;
+            height: 20px;
+            background: #3498db;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(odd)::before {
+            left: -10px;
+            right: auto;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            text-align: left;
+        }
+
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 8%;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 4rem;
+                padding-right: 2rem;
+            }
+
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) {
+                left: 0;
+                text-align: left;
+            }
+
+            .timeline-item::before {
+                left: -10px;
+            }
+        }
+
+        .skill-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-badges span {
+            margin: 0.2rem;
+        }
+
+        .social-icons a {
+            font-size: 1.5rem;
+            margin: 0 0.5rem;
+            color: #343a40;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #3498db;
+        }
+    </style>
 </head>
 
 <body>
-  <p>If you are not redirected automatically, please click
-    <a href="https://github.com/ysuryavanshi/">here</a>.
-  </p>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Yash Suryavanshi</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero" id="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content container">
+            <h1>Yash Suryavanshi</h1>
+            <p>Code, Coffee & Puns – Crafting Digital Dreams</p>
+        </div>
+    </section>
+
+    <section id="about" class="py-5">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="row align-items-center">
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <div class="ratio-9x16">
+                        <img src="banner_image.jpg" class="img-fluid rounded" alt="Profile picture of Yash Suryavanshi">
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <p>
+                        I'm a Master's Candidate in Computer Science at Santa Clara University. I have a strong
+                        foundation in software engineering and a passion for building efficient, high-impact solutions.
+                        My hands-on experience includes developing robust, scalable applications using Python, Django,
+                        and cloud technologies and working on full-stack projects that have significantly improved
+                        system performance and reduced operational overhead.
+                    </p>
+
+                    <p>
+                        During my tenure at organizations like JP Morgan Chase and HomeScreenNetwork, I honed my skills
+                        in optimizing system architectures, automating critical processes, and enhancing user
+                        experiences. My technical toolkit also includes C++, JavaScript, TypeScript, SQL, and
+                        cutting-edge cloud technologies such as Apache Kafka and AWS services.
+                    </p>
+                    <p>
+                        As I complete my graduate studies, I'm eager to leverage my industry experience and technical
+                        acumen in a full-time role where I can contribute to innovative projects and drive real-world
+                        impact. I'm excited to connect with professionals and organizations seeking a dedicated
+                        problem-solver who thrives in dynamic, collaborative environments. Let's connect and explore how
+                        we can work together to create technology that makes a difference.
+                    </p>
+                    <p>
+                        <strong>Interests:</strong> Artificial Intelligence, Cloud Computing, Web Development, and
+                        Fintech innovations.
+                    </p>
+                    <p>
+                        <strong>Hobbies:</strong> A dash of coffee-fueled coding, gaming, cooking
+                    </p>
+                    <div class="social-icons mt-4">
+                        <a href="https://github.com/ysuryavanshi" target="_blank" aria-label="GitHub"><i
+                                class="bi bi-github"></i></a>
+                        <a href="https://www.linkedin.com/in/yashsuryavanshi" target="_blank" aria-label="LinkedIn"><i
+                                class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center">Skills</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <h5 class="skill-title">Programming & Frameworks</h5>
+                    <div class="skill-badges">
+                        <span class="badge bg-primary m-1">Python</span>
+                        <span class="badge bg-primary m-1">Django Web Framework</span>
+                        <span class="badge bg-primary m-1">Django Rest Framework</span>
+                        <span class="badge bg-primary m-1">C++</span>
+                        <span class="badge bg-primary m-1">Angular</span>
+                        <span class="badge bg-primary m-1">JavaScript</span>
+                        <span class="badge bg-primary m-1">JQuery</span>
+                        <span class="badge bg-primary m-1">TypeScript</span>
+                        <span class="badge bg-primary m-1">HTML</span>
+                        <span class="badge bg-primary m-1">CSS</span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="skill-title">Big Data & Streaming</h5>
+                    <div class="skill-badges">
+                        <span class="badge bg-info m-1">PySpark</span>
+                        <span class="badge bg-info m-1">Apache Kafka</span>
+                        <span class="badge bg-info m-1">Apache Airflow</span>
+                        <span class="badge bg-info m-1">AWS S3</span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="skill-title">Databases</h5>
+                    <div class="skill-badges">
+                        <span class="badge bg-secondary m-1">MySQL</span>
+                        <span class="badge bg-secondary m-1">PostgreSQL</span>
+                        <span class="badge bg-secondary m-1">MongoDB</span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="skill-title mt-4">Machine Learning</h5>
+                    <div class="skill-badges">
+                        <span class="badge bg-success m-1">PyTorch</span>
+                        <span class="badge bg-success m-1">TensorFlow</span>
+                        <span class="badge bg-success m-1">Scikit-Learn</span>
+                        <span class="badge bg-success m-1">Pandas</span>
+                        <span class="badge bg-success m-1">NumPy</span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="skill-title mt-4">Tools & Systems</h5>
+                    <div class="skill-badges">
+                        <span class="badge bg-warning m-1">Linux</span>
+                        <span class="badge bg-warning m-1">SSH</span>
+                        <span class="badge bg-warning m-1">Shell Scripting</span>
+                        <span class="badge bg-warning m-1">Git</span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="skill-title mt-4">Soft Skills</h5>
+                    <div class="skill-badges">
+                        <span class="badge bg-dark m-1">Leadership</span>
+                        <span class="badge bg-dark m-1">Problem Solving</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section id="projects" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Collaborative Web Builder</h5>
+                            <small class="text-muted">Sep 2024 - Dec 2024</small>
+                            <p class="card-text mt-2">
+                                Developed a real-time, collaborative drag-and-drop website builder using React, Node.js,
+                                and WebSockets.
+                            </p>
+                            <ul>
+                                <li>Implemented Conflict-free Replicated Data Types (CRDTs) and Operational
+                                    Transformation (OT) algorithms to ensure seamless synchronization and consistency
+                                    across different users, even with network delays or disconnections.</li>
+                                <li>Enabled users to co-design web pages with immediate updates, enhancing collaboration
+                                    efficiency by 30%.</li>
+                            </ul>
+                            <p class="text-muted mt-3"><em>Project completed at Santa Clara University.</em></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">ECommerce - Bronco Store</h5>
+                            <small class="text-muted">Apr 2024 - Jun 2024</small>
+                            <p class="card-text mt-2">
+                                Developed a full-fledged e-commerce website to address challenges in database management
+                                systems. The backend was implemented using Node.js and MongoDB.
+                            </p>
+                            <ul>
+                                <li>Efficient database design and relationships.</li>
+                                <li>Seamless migrations and schema updates.</li>
+                                <li>Robust CRUD operations and dynamic data handling.</li>
+                                <li>Optimized queries and scaling for growing user volumes.</li>
+                            </ul>
+                            <p class="text-muted mt-3"><em>Project completed at Santa Clara University.</em></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Audio Classification using RCNNs</h5>
+                            <small class="text-muted">Feb 2024 - Mar 2024</small>
+                            <p class="card-text mt-2">
+                                Designed and trained a Recurrent Convolutional Neural Network to classify audio clips
+                                with advanced feature extraction.
+                            </p>
+                            <ul>
+                                <li>Utilized MFCCs, STFT, and RMSE for audio feature extraction.</li>
+                                <li>Employed audio embeddings via PANNs for richer representations.</li>
+                                <li>Explored RCNN configurations with LSTMs & Bidirectional-LSTMs.</li>
+                                <li>Tuned learning rates and optimized network size, evaluated using the F1 score.</li>
+                            </ul>
+                            <p class="text-muted mt-3"><em>Project completed at Santa Clara University.</em></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Vehicle Detection and Classification</h5>
+                            <small class="text-muted">Feb 2024 - Feb 2024</small>
+                            <p class="card-text mt-2">
+                                Developed a system for detecting and classifying vehicles using transfer learning with
+                                models such as YoloV8m and Faster R-CNN.
+                            </p>
+                            <ul>
+                                <li>Optimized batch size and utilized layer freezing strategies.</li>
+                                <li>Tuned hyperparameters like momentum, weight decay, and learning rate.</li>
+                                <li>Tested multiple optimizers including RMS-Prop and Adam.</li>
+                                <li>Evaluated model performance using mean average precision (mAP).</li>
+                            </ul>
+                            <p class="text-muted mt-3"><em>Project completed at Santa Clara University.</em></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Peptide Prediction</h5>
+                            <small class="text-muted">Jan 2024 - Jan 2024</small>
+                            <p class="card-text mt-2">
+                                Developed a neural network from scratch to predict unknown amino acids labeled as
+                                Biofilm and Anti-biofilm.
+                            </p>
+                            <ul>
+                                <li>Applied data balancing techniques: SMOTE, ADASYN, SMOTEENN.</li>
+                                <li>Experimented with neurons, learning rates, epochs, and activation functions.</li>
+                                <li>Focused on maximizing the MCC score for robust performance.</li>
+                            </ul>
+                            <p class="text-muted mt-3"><em>Project completed at Santa Clara University.</em></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Facial Recognition</h5>
+                            <small class="text-muted">Sep 2023 - Nov 2023</small>
+                            <p class="card-text mt-2">
+                                Developed a facial recognition system using a custom dataset from student data.
+                            </p>
+                            <ul>
+                                <li>Implemented data preprocessing and augmentation techniques.</li>
+                                <li>Used feature extraction and dimensionality reduction (LDA, PCA).</li>
+                                <li>Tested various models: SVM, Decision Trees, Random Forests, KNN, CNN, MLP, etc.</li>
+                                <li>Optimized model performance to improve prediction accuracy.</li>
+                            </ul>
+                            <p class="text-muted mt-3"><em>Project completed at Santa Clara University.</em></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Capital Desktop</h5>
+                            <small class="text-muted">Jan 2022 - Aug 2023</small>
+                            <p class="card-text mt-2">
+                                Designed, maintained, and enhanced capital reporting tools using Python to ensure
+                                uninterrupted business operations.
+                            </p>
+                            <ul>
+                                <li>Modernized legacy applications by transitioning them to a microservices-based
+                                    architecture.</li>
+                                <li>Streamlined reporting processes, bolstering operational reliability and scalability.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">The Art of Living</h5>
+                            <small class="text-muted">Mar 2021</small>
+                            <p class="card-text mt-2">
+                                Created a web portal for the Art of Living summer camp during COVID-19.
+                            </p>
+                            <ul>
+                                <li>Built using Django and integrated live video streams along with engaging video
+                                    content to facilitate interaction for children.</li>
+                                <li>Developed robust user onboarding, authentication, and notification features to
+                                    ensure a seamless experience.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Spark.Live</h5>
+                            <small class="text-muted">Jul 2019 - Oct 2021</small>
+                            <p class="card-text mt-2">
+                                Spark.Live is an online marketplace tailored for India's vernacular audience to buy and
+                                offer services.
+                            </p>
+                            <ul>
+                                <li>Expanded the user base to over 200,000 by developing a robust web application using
+                                    Django, HTML, JavaScript, and jQuery.</li>
+                                <li>Facilitated multi-format content sales and consumption across diverse media.</li>
+                                <li>Generated over ₹2M in monthly revenue by implementing efficient billing, payment,
+                                    and subscription systems using Django Rest Framework.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Touchless Cash App</h5>
+                            <small class="text-muted">Sep 2018 - Jul 2019</small>
+                            <p class="card-text mt-2">
+                                Built a microservices-based application in Python to automate invoice processing.
+                            </p>
+                            <ul>
+                                <li>Implemented robust authentication and token generation for secure transactions.</li>
+                                <li>Streamlined invoice processing, reducing manual efforts and ensuring efficiency.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h5>JP Morgan Chase</h5>
+                    <p class="mb-0"><em>Software Engineer</em> | Bangalore, India</p>
+                    <small>Jan 2022 – Aug 2023</small>
+                    <p>
+                        Software engineer on the Capital Desktop team, working on building, maintaining, and supporting
+                        technology critical to capital reporting.
+                    </p>
+                    <p>
+                        Managed and enhanced capital reporting tools based on Python, enabling uninterrupted business
+                        operations.
+                    </p>
+                </div>
+                <div class="timeline-item">
+                    <h5>HomeScreenNetwork Pvt. Ltd.</h5>
+                    <p class="mb-0"><em>Software Engineer</em> | Bangalore, India</p>
+                    <small>Jul 2019 – Oct 2021</small>
+                    <p>
+                        Help build an online marketplace connecting educators and gurus with an audience of over 200,000
+                        across the vernacular segment of India.
+                    </p>
+                    <p>
+                        Created web applications for the online marketplace using Django, HTML, Javascript, and JQuery;
+                        facilitating purchases and content consumption in text, image, and video formats.
+                    </p>
+                </div>
+                <div class="timeline-item">
+                    <h5>Genpact India Pvt. Ltd.</h5>
+                    <p class="mb-0"><em>Software Engineer</em> | Noida, India</p>
+                    <small>Sep 2018 – Jul 2019</small>
+                    <p>
+                        Developed automation solutions using Python for recurring processes in the Touchless Cash
+                        Application, saving significant user time.
+                    </p>
+                    <p>
+                        Designed and implemented CoraAP Flow using Angular and Node.js, establishing a company-wide
+                        platform for efficient invoice settlements.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Santa Clara University</h5>
+                            <p class="card-text"><strong>MS in Computer Science</strong></p>
+                            <p class="card-text"><em>Sep 2023 – Jun 2025</em></p>
+                            <p class="card-text">Pursuing advanced studies with a focus on innovative software
+                                development and research.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Amity School of Engineering and Technology</h5>
+                            <p class="card-text"><strong>B.Tech in Computer Science</strong></p>
+                            <p class="card-text"><em>Aug 2014 – May 2018</em></p>
+                            <p class="card-text">Completed undergraduate studies with a strong foundation in computer
+                                science and engineering principles.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="beyond" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center">Beyond the Resume</h2>
+            <ul class="list-group mt-4">
+                <li class="list-group-item">
+                    <strong>Teaching Assistant:</strong> Guided students in Machine Learning, Web Development, and
+                    Software Engineering, bridging the gap between theory and practice.
+                </li>
+                <li class="list-group-item">
+                    <strong>Tech Support:</strong> Provided hands-on support for "Wave," Santa Clara University's
+                    high-performance computing unit, ensuring smooth operation for advanced research.
+                </li>
+                <li class="list-group-item">
+                    <strong>Spark.Live:</strong> Crowned runner-up for the App Innovate Challenge by the Government of
+                    India in 2020.
+                </li>
+            </ul>
+        </div>
+    </section>
+
+
+    <section id="contact" class="py-5">
+        <div class="container text-center">
+            <h2 class="section-title">Get in Touch</h2>
+            <p>
+                If you have a project or opportunity you'd like to discuss, feel free to reach out via email at
+                <a href="mailto:yash.suryavanshi@ymail.com">yash.suryavanshi@ymail.com</a> or connect with me on social
+                media.
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p class="text-center">&copy; 2025 Yash Suryavanshi. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
